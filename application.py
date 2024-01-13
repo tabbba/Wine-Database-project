@@ -44,7 +44,8 @@ FROM (
     Taster_Name
 ) AS w1
 JOIN Wine w2 ON w1.Taster_Name = w2.Taster_Name AND w1.MaxPrice = w2.Price;
-'''
+''',
+6: "SELECT title FROM Wine WHERE Country = 'Italy' AND Price > 100 ORDER BY Points DESC LIMIT 10;",
 }
 
 queries_type = [
@@ -52,7 +53,8 @@ queries_type = [
     '2) Calculate the average price of wine by variety',
     '3) List wines with "fruity" in the description, sorted by points',
     '4) Count the number of wines by province',
-    '5) Find the most expensive wine for each taster'
+    '5) Find the most expensive wine for each taster',
+    '6) Find the highest rated Italian wines over 100$'
 ]
 
 cont = True
