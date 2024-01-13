@@ -32,7 +32,18 @@ GROUP BY Province
 ORDER BY NumberOfWines DESC;
 
 # FIND THE MOST EXPENSIVE WINE FOR EACH TASTER
-SELECT Taster_Name, MAX(Price) AS MaxPrice, Title, Winery
-FROM Wine
-GROUP BY Taster_Name
-ORDER BY MaxPrice DESC;
+SELECT 
+  w1.Taster_Name, 
+  w1.MaxPrice, 
+  w2.Title, 
+  w2.Winery
+FROM (
+  SELECT 
+    Taster_Name, 
+    MAX(Price) AS MaxPrice
+  FROM 
+    Wine
+  GROUP BY 
+    Taster_Name
+) AS w1
+JOIN Wine w2 ON w1.Taster_Name = w2.Taster_Name AND w1.MaxPrice = w2.Price;

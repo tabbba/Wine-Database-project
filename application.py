@@ -12,8 +12,6 @@ try:
 except Error as e:
      print("Error while connecting to MySQL", e)
 
-# Define the SQL queries based on the tasks provided
-# Define the SQL queries based on the tasks provided
 queries = {
     1: '''
     SELECT w1.Country, 
